@@ -12,6 +12,7 @@ export default function Home() {
   const [category, setCategory] = useState("");
   const [isSignedIn, setIsSignedIn] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [items, setItems] = useState([]);
 
   const auth = getAuth();
 
@@ -25,17 +26,20 @@ export default function Home() {
   }, [auth]);
 
   useEffect(() => {
-    const testFirestore = async () => {
+    const fetchItems = async () => {
       try {
         const querySnapshot = await getDocs(collection(db, "pantryItems"));
-        console.log("Firestore connection test:", querySnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id })));
+        const allItems = querySnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }));
+        setItems(allItems); // Store fetched items
       } catch (error) {
-        console.error("Firestore connection test failed:", error);
+        console.error("Error fetching items:", error);
       }
     };
 
-    testFirestore();
-  }, []);
+    if (isSignedIn) {
+      fetchItems();
+    }
+  }, [isSignedIn]);
 
   const handleSignIn = () => {
     setIsSignedIn(true);
@@ -70,7 +74,7 @@ export default function Home() {
             <Card>
               <CardContent>
                 <Typography variant="h5" component="div" align="center">
-                  Pantry Tracker 2.0
+                  Pantry Tracker
                 </Typography>
                 <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
                   <CardMedia

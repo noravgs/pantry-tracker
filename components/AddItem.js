@@ -11,10 +11,11 @@ const AddItem = ({ onAdd }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (name && category) {
-      const newItem = await addItem({ name, category }); // Add item to Firestore
-      onAdd(newItem); // Pass the new item to the dashboard
-      setName("");
-      setCategory("");
+      const newItem = { name, category };
+      await addItem(newItem);
+      onAdd(newItem); // Pass the new item to the parent component
+      setName(""); // Clear the name input field
+      setCategory(""); // Clear the category input field
     }
   };
 
@@ -25,6 +26,8 @@ const AddItem = ({ onAdd }) => {
         value={name}
         onChange={(e) => setName(e.target.value)}
         required
+        fullWidth
+        margin="normal"
       />
       <TextField
         select
@@ -32,6 +35,8 @@ const AddItem = ({ onAdd }) => {
         value={category}
         onChange={(e) => setCategory(e.target.value)}
         required
+        fullWidth
+        margin="normal"
       >
         {categories.map((cat) => (
           <MenuItem key={cat} value={cat}>
@@ -39,7 +44,9 @@ const AddItem = ({ onAdd }) => {
           </MenuItem>
         ))}
       </TextField>
-      <Button type="submit">Add Item</Button>
+      <Button type="submit" variant="contained" color="primary" fullWidth>
+        Add Item
+      </Button>
     </form>
   );
 };
