@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Grid, Card, CardContent, Typography, CardActions, Button, Chip, Dialog, DialogTitle, DialogContent, DialogActions, TextField, MenuItem } from '@mui/material';
 import { deleteItem, updateItem, getItems } from "../lib/firestoreUtils";
 
-const categories = ["Fruits and Vegetables", "Dairy", "Nuts/Cereals", "Drinks", "Snacks", "Other"];
+const categories = ["Fruits and Vegetables", "Dairy", "Nuts/Cereals", "Drinks", "Snacks", "Spices", "Other"];
 
 const ItemList = ({ items, onItemUpdate }) => {
   const [editItem, setEditItem] = useState(null);

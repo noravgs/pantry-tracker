@@ -108,6 +108,7 @@ const Dashboard = () => {
             <MenuItem value="Nuts/Cereals">Nuts/Cereals</MenuItem>
             <MenuItem value="Drinks">Drinks</MenuItem>
             <MenuItem value="Snacks">Snacks</MenuItem>
+            <MenuItem value="Snacks">Spices</MenuItem>
             <MenuItem value="Snacks">Other</MenuItem>
           </Select>
         </FormControl>

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { TextField, Button, MenuItem, Box } from "@mui/material";
 import { addItem } from "../lib/firestoreUtils";
 
-const categories = ["Fruits and Vegetables", "Dairy", "Nuts/Cereals", "Drinks", "Snacks", "Other"];
+const categories = ["Fruits and Vegetables", "Dairy", "Nuts/Cereals", "Drinks", "Snacks", "Spices", "Other"];
 
 const AddItem = ({ onAdd }) => {
   const [name, setName] = useState("");
