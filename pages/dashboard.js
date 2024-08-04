@@ -55,7 +55,7 @@ const Dashboard = () => {
   const handleSignOut = async () => {
     await auth.signOut();
     setIsSignedIn(false);
-    router.push("/");
+    router.push("/dashboard");
   };
 
   const handleAddItem = (newItem) => {
