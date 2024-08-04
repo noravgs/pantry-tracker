@@ -55,7 +55,7 @@ const Dashboard = () => {
   const handleSignOut = async () => {
     await auth.signOut();
     setIsSignedIn(false);
-    router.push("/dashboard");
+    router.push("/");
   };
 
   const handleAddItem = (newItem) => {
@@ -72,11 +72,11 @@ const Dashboard = () => {
 
   return (
     <Container>
-      <Typography variant="h4" component="h1" gutterBottom>
+      <Typography variant="h4" component="h1" sx={{ fontFamily: 'Ubuntu' }} gutterBottom>
         Your Pantry Items
       </Typography>
 
-      <Button variant="contained" color="secondary" onClick={handleSignOut}>
+      <Button variant="contained" sx={{ fontFamily: 'Ubuntu' }} style={{ background: '#00a5cf' }} onClick={handleSignOut}>
         Log Out
       </Button>
 
@@ -90,13 +90,13 @@ const Dashboard = () => {
             value={sortOption}
             onChange={(e) => setSortOption(e.target.value)}
           >
-            <MenuItem value="name">Name</MenuItem>
+            <MenuItem value="name" sx={{ fontFamily: 'Ubuntu' }}>Name</MenuItem>
             <MenuItem value="category">Category</MenuItem>
           </Select>
         </FormControl>
 
         <FormControl fullWidth>
-          <InputLabel id="category-label">Filter by Category</InputLabel>
+          <InputLabel id="category-label" sx={{ fontFamily: 'Ubuntu' }}>Filter by Category</InputLabel>
           <Select
             labelId="category-label"
             value={categoryFilter}
@@ -125,7 +125,7 @@ const Dashboard = () => {
       </Box>
       <RecipeSuggestions items={items} />
       {filteredItems.length === 0 ? (
-        <Typography variant="h6">Your pantry is empty! Please add an item.</Typography>
+        <Typography variant="h6" sx={{ fontFamily: 'Ubuntu'}} >Your pantry is empty! Please add an item.</Typography>
       ) : (
         <ItemList items={filteredItems} onItemUpdate={fetchItems} />
       )}

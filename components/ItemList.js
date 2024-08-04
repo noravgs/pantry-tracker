@@ -41,14 +41,14 @@ const ItemList = ({ items, onItemUpdate }) => {
         {items.map((item) => (
           <Grid item xs={12} sm={6} md={4} key={item.id}>
             <Card>
-              <CardContent>
+              <CardContent sx={{ boxShadow: 1 }}>
                 <Typography variant="h6" component="div">
                   {item.name}
                 </Typography>
                 <Chip 
                   label={item.category} 
                   size="small" 
-                  style={{ backgroundColor: '#4caf50', color: '#ffffff', marginTop: 8 }}
+                  style={{ backgroundColor: '#ffd449', color: '#ffffff', marginTop: 8 }}
                 />
                 <Typography variant="body2" color="text.secondary" style={{ marginTop: 8 }}>
                   Quantity: {item.quantity || 'N/A'}

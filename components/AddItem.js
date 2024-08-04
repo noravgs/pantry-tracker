@@ -53,7 +53,7 @@ const AddItem = ({ onAdd }) => {
           required
           fullWidth
         />
-        <Button type="submit" variant="contained" color="primary" fullWidth>
+        <Button type="submit" variant="contained" sx={{ fontFamily: 'Ubuntu'}} style={{ background: '#718355' }} fullWidth>
           Add Item
         </Button>
       </Box>
