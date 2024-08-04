@@ -18,6 +18,7 @@ const SignIn = () => {
     try {
       if (isSignUp) {
         await createUserWithEmailAndPassword(auth, email, password);
+        router.push("/dashboard");
         alert("Sign-up successful");
       } else {
         await signInWithEmailAndPassword(auth, email, password);
